@@ -31,7 +31,6 @@ namespace INTEGRATA_TDPC13.Controllers
             this.userManager = userManager;
             this.dbContext = dbContext;
             this.logger = logger;
-
         }
 
         public IActionResult Index()
@@ -63,14 +62,14 @@ namespace INTEGRATA_TDPC13.Controllers
 
         public IActionResult Login()
         {
-            return View();
+            LoginModel model = new LoginModel();
+            return View(model);
         }
 
         public IActionResult Explor()
         {
             return View();
         }
-
 
         public IActionResult SignIn([FromServices] UserDBContext dBContext, string userName, string email)
         {
@@ -349,6 +348,5 @@ namespace INTEGRATA_TDPC13.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-
 }
 
